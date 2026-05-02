@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.game-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+  to { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
+}
+
+.arena {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.fighter {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+  min-width: 280px;
+}
+
+.fighter.attacking {
+  transform: scale(1.1);
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.fighter-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.jersey {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  font-size: 5rem;
+  margin: 20px 0;
+}
+
+.health-bar {
+  width: 100%;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 15px 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.health-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: 15px;
+}
+
+.kim-health {
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+}
+
+.mohamed-health {
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+}
+
+.health-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.skill-name {
+  font-size: 1.3rem;
+  margin: 15px 0;
+  color: #ffd700;
+  font-style: italic;
+}
+
+.attack-btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.kim-btn {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+}
+
+.kim-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 65, 108, 0.4);
+}
+
+.mohamed-btn {
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: white;
+}
+
+.mohamed-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4);
+}
+
+.attack-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.vs {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.game-over {
+  text-align: center;
+  margin: 40px 0;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result {
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.kim-wins {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+.mohamed-wins {
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+}
+
+.result h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.taunt {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.restart-btn {
+  padding: 15px 40px;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+}
+
+.battle-log {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 30px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.battle-log h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.log-entry {
+  padding: 10px;
+  margin: 5px 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  border-left: 4px solid #ffd700;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .arena {
+    gap: 20px;
+  }
+  
+  .fighter {
+    min-width: 100%;
+  }
+  
+  .vs {
+    font-size: 2rem;
+  }
+  
+  .taunt {
+    font-size: 1.5rem;
+  }
+}
